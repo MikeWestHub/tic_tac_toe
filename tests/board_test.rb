@@ -1,8 +1,8 @@
 require 'minitest/autorun'
-require './lib/board'
+require './lib/grid'
 
-class BoardTest < MiniTest::Test
+class GridTest < MiniTest::Test
   def test_board_exists
-    assert Board.new
+    assert Grid.new
   end
 end
