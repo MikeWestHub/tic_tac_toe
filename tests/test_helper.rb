@@ -1,5 +1,0 @@
-require 'minitest/autorun'
-require './lib/board'
-require './lib/input'
-require './lib/player'
-require './lib/game'
