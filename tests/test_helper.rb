@@ -1,4 +1,5 @@
 require 'minitest/autorun'
-require './lib/grid'
+require './lib/board'
 require './lib/input'
 require './lib/player'
+require './lib/game'

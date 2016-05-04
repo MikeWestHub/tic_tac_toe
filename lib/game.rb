@@ -1,24 +1,37 @@
 require_relative 'player'
 require_relative 'board'
 require_relative 'input'
+require "pry"
 
 class Game
-  attr_reader :player
   def initialize
     @board = Board.new
-    create_player
   end
 
   def create_player
     puts "Player 1, you will be X. Please enter your name."
-    @player = Player.new(gets.chomp, "X")
+    Player.new(gets.chomp, "X")
   end
 
-  def select_move
-    puts "#{player.name}, pick a space by specifying the letter and number, ie: A1."
-    Input.new(gets.chomp)
+  def play
+    @player_1 = create_player
+    valid_move = get_players_move(@player_1)
+  end
+
+  def valid?(input)
+    @valid_input = ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+    if @valid_input.include?(input)
+      true
+    else
+      puts "Invalid selection."
+      false
+    end
+  end
+
+  def get_players_move(player)
+    input = nil
+    until valid?(input)
+      input = player.select_move
+    end
   end
 end
-
-game = Game.new
-game.select_move
