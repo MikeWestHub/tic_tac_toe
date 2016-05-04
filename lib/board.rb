@@ -1,20 +1,23 @@
 class Board
-  attr_reader :open_grid
-  def open_grid
-    <<~HEREDOC
-       ____________________
-      |      |      |      |
-      |  A1  |  A2  |  A3  |
-      |______|______|______|
-      |      |      |      |
-      |  B1  |  B2  |  B3  |
-      |______|______|______|
-      |      |      |      |
-      |  C1  |  C2  |  C3  |
-      |______|______|______|
+  attr_reader :open_board
+  def open_board
+    board_string = <<~HEREDOC
+
+              |       |
+    A         |       |
+       _______|_______|_______
+              |       |
+    B         |       |
+       _______|_______|_______
+              |       |
+    C         |       |
+              |       |
+          1       2       3
     HEREDOC
+
+    #board_string.gsub("A2", " X")
   end
 end
 
-game = Grid.new
-puts game.open_grid
+game = Board.new
+puts game.open_board
