@@ -41,6 +41,14 @@ class Board
     open_board.values.all? { |e| e == " " }
   end
 
+  def full?
+    open_board.values.each do |e|
+      if e != " "
+        return true
+      end
+    end  
+  end
+
   def make_move(args)
     if open_board[args[:pos]] == " "
       open_board[args[:pos]] = args[:sign]
@@ -55,7 +63,10 @@ class Board
     end
   end
 
-  def draw
+  def draw(sign)
+    winning_positions.any? do |winning_position|
+      (moves_for_sign(sign) & winning_position).size != 3
+    end
   end
 
 end
