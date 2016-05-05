@@ -30,21 +30,29 @@ class Board
       ]
   end
 
+
+  def moves_for_sign(sign)
+    @open_board.select do |key, value|
+      value == sign
+    end.keys
+  end
+
   def empty?
     open_board.values.all? { |e| e == " " }
   end
 
   def make_move(args)
-    if @open_board[args[:pos]] == " "
-      @open_board[args[:pos]] = args[:sign]
+    if open_board[args[:pos]] == " "
+      open_board[args[:pos]] = args[:sign]
     else
       false
     end
   end
 
-  def winnner
-    winning_positions.each do |winning_position|
-    end
+  def winner
+    winning_positions.any? do |winning_position|
+      (moves_for_sign("x") & winning_position).size == 3
+    end  
   end
 
   def draw
