@@ -49,10 +49,10 @@ class Board
     end
   end
 
-  def winner
+  def winner(sign)
     winning_positions.any? do |winning_position|
-      (moves_for_sign("x") & winning_position).size == 3
-    end  
+      (moves_for_sign(sign) & winning_position).size == 3
+    end
   end
 
   def draw

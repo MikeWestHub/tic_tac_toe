@@ -23,7 +23,8 @@ RSpec.describe Board do
     subject.make_move({sign: "x", pos: :a1})
     subject.make_move({sign: "x", pos: :a2})
     subject.make_move({sign: "x", pos: :a3})
-    expect(subject.winner).to eq true
+    expect(subject.winner("x")).to eq true
+    expect(subject.winner("o")).to eq false
   end
 
   it "can return moves for player" do
