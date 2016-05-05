@@ -33,7 +33,4 @@ class Game
       input = player.select_move
     end
   end
-
-  def change_input_to_sign  
-  end
 end

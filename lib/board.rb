@@ -17,7 +17,37 @@ class Board
     puts "C  #{@open_board[:c1]}   |  #{@open_board[:c2]}  |   #{@open_board[:c3]} "
   end
 
-end
+  def winning_positions
+      [
+        [:a1, :a2, :a3],
+        [:b1, :b2, :b3],
+        [:c1, :c2, :c3],
+        [:a1, :b1, :c1],
+        [:a2, :b2, :c2],
+        [:a3, :b3, :c3],
+        [:a1, :b2, :c3],
+        [:c1, :b2, :a3]
+      ]
+  end
 
-game = Board.new
-puts game.grid_view
+  def empty?
+    open_board.values.all? { |e| e == " " }
+  end
+
+  def make_move(args)
+    if @open_board[args[:pos]] == " "
+      @open_board[args[:pos]] = args[:sign]
+    else
+      false
+    end
+  end
+
+  def winnner
+    winning_positions.each do |winning_position|
+    end
+  end
+
+  def draw
+  end
+
+end
