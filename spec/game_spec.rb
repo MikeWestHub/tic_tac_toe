@@ -5,4 +5,8 @@ RSpec.describe Game do
   it "entry is valid" do
     expect(subject.valid?("a3")).to eq true
   end
+
+  it "" do
+
+  end
 end

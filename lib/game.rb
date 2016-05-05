@@ -14,7 +14,7 @@ class Game
 
   def play
     @player_1 = create_player
-    valid_move = get_players_move(@player_1)
+    get_players_move(@player_1)
   end
 
   def valid?(input)
@@ -32,5 +32,8 @@ class Game
     until valid?(input)
       input = player.select_move
     end
+  end
+
+  def change_input_to_sign  
   end
 end
