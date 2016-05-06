@@ -3,18 +3,22 @@ require_relative 'board'
 require "pry"
 
 class Game
+  attr_reader :board
   def initialize
     @board = Board.new
   end
 
   def create_player
     puts "Player 1, you will be X. Please enter your name."
-    Player.new(gets.chomp, "X")
+    @player_1 = Player.new(gets.chomp, "x")
+    puts "Player 2, you will be O. Please enter your name."
+    @player_2 = Player.new(gets.chomp, "o")
   end
 
   def play
-    @player_1 = create_player
-    get_players_move(@player_1)
+    create_player
+      get_players_move(@player_1)
+      get_players_move(@player_2)
   end
 
   def valid?(input)
@@ -33,4 +37,7 @@ class Game
       input = player.select_move
     end
   end
+
+  def game_over
+  end 
 end

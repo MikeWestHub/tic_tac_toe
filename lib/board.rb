@@ -46,7 +46,7 @@ class Board
       if e != " "
         return true
       end
-    end  
+    end
   end
 
   def make_move(args)
@@ -64,9 +64,7 @@ class Board
   end
 
   def draw(sign)
-    winning_positions.any? do |winning_position|
-      (moves_for_sign(sign) & winning_position).size != 3
-    end
+    full? && winner(sign) == false
   end
 
 end

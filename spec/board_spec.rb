@@ -47,13 +47,13 @@ RSpec.describe Board do
   end
 
   it "will identify a draw" do
-    subject.make_move({sign: "x", pos: :a1})
-    subject.make_move({sign: "o", pos: :a2})
+    subject.make_move({sign: "o", pos: :a1})
+    subject.make_move({sign: "x", pos: :a2})
     subject.make_move({sign: "x", pos: :a3})
-    subject.make_move({sign: "o", pos: :b1})
+    subject.make_move({sign: "x", pos: :b1})
     subject.make_move({sign: "x", pos: :b2})
     subject.make_move({sign: "o", pos: :b3})
-    subject.make_move({sign: "x", pos: :c1})
+    subject.make_move({sign: "o", pos: :c1})
     subject.make_move({sign: "o", pos: :c2})
     subject.make_move({sign: "x", pos: :c3})
     expect(subject.draw("x")).to eq true
